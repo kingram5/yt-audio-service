@@ -54,7 +54,7 @@ app.post("/extract", async (req, res) => {
     const title = await new Promise((resolve, reject) => {
       execFile(
         "yt-dlp",
-        ["--get-title", "--no-warnings", url],
+        ["--get-title", "--no-warnings", "--extractor-args", "youtube:player_client=ios", url],
         { timeout: 30000 },
         (err, stdout) => {
           if (err) reject(err);
@@ -74,6 +74,7 @@ app.post("/extract", async (req, res) => {
           "-o", outPath,
           "--no-warnings",
           "--no-playlist",
+          "--extractor-args", "youtube:player_client=ios",
           url,
         ],
         { timeout: 300000 },
