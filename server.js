@@ -71,6 +71,7 @@ app.post("/extract", async (req, res) => {
           "-x",
           "--audio-format", "m4a",
           "--audio-quality", "0",
+          "--format", "bestaudio[ext=m4a]/bestaudio/best",
           "-o", outPath,
           "--no-warnings",
           "--no-playlist",
